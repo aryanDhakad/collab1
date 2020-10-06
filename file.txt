@@ -2,16 +2,16 @@ So this is Project Akira, the name of the Boutique is AKira.
 
 Project Contributors are as Follows:
 
-Web Development Wing : Aryan Dhakad, Nischay Naagar
+Web Development Wing : Aryan Dhakad, Nischay Nagar
 
 App Development Wing : Saching Singh Jagawat
 
 Now Nishcay Please Fill these Enteries In your code.
 
-Code Editor used for development : 
+Code Editor used for development : VS Code
 
-Expected Completion Date : 
+Expected Completion Date : 16 oct 2020
 
-Mirzapur 2 Trailer Watched( Y/N) :
+Mirzapur 2 Trailer Watched( Y/N) : Y
 
-What All pages you will form on your behalf?
+What All pages you will form on your behalf? features and contact pages
