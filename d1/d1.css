@@ -1,0 +1,110 @@
+/* MOSAIC 1 */
+.mosaic1 {
+    margin: 50px auto;
+    border-radius: 50px;
+    position: relative;
+    display: grid;
+    background-color: #222;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-rows: repeat(auto-fit, 240px);
+    grid-auto-flow: row dense;
+    grid-gap: 10px;
+}
+
+@media screen and (min-width: 600px) {
+    .wide-grid {
+        grid-column: span 2 / auto;
+    }
+
+    .long-grid {
+        grid-row: span 2 / auto;
+    }
+
+    .mosaic1 .box:nth-child(5) {
+        grid-row: span 3 / auto;
+    }
+}
+
+.mosaic1 .box img {
+    max-height: 280px;
+    max-width: 250px;
+    transition: 0.3s linear;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 240px;
+    min-height: 240px;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    transition: 0.5s ease-in-out;
+    overflow: hidden;
+
+}
+
+.mosaic1 .box:hover {
+    background-color: pink;
+
+}
+
+.mosaic1 .box h3 {
+    display: none;
+    transition: 0.3s ease-in-out;
+}
+
+.mosaic1 .box:hover img {
+    display: none;
+}
+
+.mosaic1 .box:hover h3 {
+    display: block;
+}
+
+/* GRID 2 */
+
+.grid-2 {
+    background-color: #fff;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fill, 250px);
+    grid-template-rows: repeat(auto-fill, 250px);
+    grid-gap: 10px;
+}
+
+.box1 .content {
+    position: relative;
+    left: -250px;
+}
+
+.box1 {
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+}
+
+.box1:hover {
+    border: 5px solid green;
+}
+
+.box1:hover img {
+    opacity: 0.2;
+}
+
+.box1:hover .content {
+    animation: change 0.5s linear 1 forwards;
+}
+
+@keyframes change {
+    from {
+        top: -230px;
+        left: -250px;
+    }
+
+    to {
+        left: 10px;
+        top: -230px;
+    }
+}
