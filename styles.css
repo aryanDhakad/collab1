@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: rgb(236, 232, 232);
 }
 
 hr {
@@ -14,6 +15,10 @@ hr {
     margin: 20px auto;
 }
 
+.pic {
+    display: grid;
+    place-items: center;
+}
 
 /* PAGE 1 */
 .bg1 {
@@ -21,21 +26,15 @@ hr {
     color: rgb(80, 12, 240);
     margin: 5px;
     clip-path: circle(50.0% at 50% 0);
-    border-radius: 35px;
     height: 400px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
 }
-
-
 
 /* CARD IN DISP1 */
 .disp1 {
     background-color: #d9e4dd;
+    padding: 30px 0;
     transition: 0.3s ease-in-out;
 }
-
 
 .imgBx {
     height: 200px;
@@ -87,106 +86,90 @@ hr {
     width: 800px
 }
 
-/* CURVED HEADER SECTION */
-.curved-header1,
-.curved-header2 {
-    text-align: center;
-    font-size: 3rem;
-    color: silver;
-    width: 100%;
-    height: 200px;
-    padding-top: 100px;
-    margin: 10px 0;
+
+/* COOL DIV 1 */
+.square {
+    height: 300px;
+    width: 300px;
+    display: grid;
+    place-items: center;
     position: relative;
+    margin: 30px 220px;
 }
 
-.curved-header1 {
-    border-radius: 0 0 70% 10%;
-    background-color: #c62a88;
-    animation: colour1 5s linear infinite;
+.square span:nth-child(1),
+.square span:nth-child(2),
+.square span:nth-child(3) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
+    border-radius: 31% 62% 63% 39% / 41% 44% 56% 49%;
+    transition: 0.3s ease-in-out;
+
 }
 
-@keyframes colour1 {
+.square span:nth-child(1) {
+    animation: cooldiv 10s linear infinite
+}
+
+.square span:nth-child(2) {
+    animation: cooldiv 6s linear infinite
+}
+
+.square span:nth-child(3) {
+    animation: cooldiv 4s linear infinite
+}
+
+.square:hover span:nth-child(1) {
+    border: none;
+    background-color: dodgerblue;
+}
+
+.square:hover span:nth-child(2) {
+    border: none;
+    background-color: dodgerblue;
+}
+
+.square:hover span:nth-child(3) {
+    border: none;
+    background-color: dodgerblue;
+}
+
+.square .cont1 {
+    font-size: 2rem;
+    z-index: 10;
+}
+
+@keyframes cooldiv {
     0% {
-        background-color: blue;
-        border-radius: 0 0 10% 10%;
-    }
-
-    10% {
-        background-color: rgb(6, 6, 94);
-        border-radius: 50% 0 300% 30%;
-    }
-
-    40% {
-        background-color: rgb(126, 202, 164);
-        border-radius: 10% 50% 60% 50%;
-    }
-
-    80% {
-        background-color: rgb(219, 124, 124);
-        border-radius: 60% 30% 70% 60%;
+        transform: rotate(0deg);
     }
 
     100% {
-        background-color: rgb(224, 18, 139);
-        border-radius: 0 0 10% 10%;
-    }
-}
-
-.curved-header2 {
-    margin-top: 25px;
-    border-radius: 70% 10% 0 0;
-    background-color: #590995;
-    animation: colour2 5s linear infinite;
-}
-
-@keyframes colour2 {
-    0% {
-        background-color: blue;
-        border-radius: 10% 10% 0 0;
-    }
-
-    10% {
-        background-color: rgb(6, 6, 94);
-        border-radius: 50% 300% 0 30%;
-    }
-
-    40% {
-        background-color: rgb(126, 202, 164);
-        border-radius: 50% 60% 50% 10%;
-    }
-
-    80% {
-        background-color: rgb(219, 124, 124);
-        border-radius: 60% 70% 60% 30%;
-    }
-
-    100% {
-        background-color: rgb(224, 18, 139);
-        border-radius: 10% 10% 0 0;
+        transform: rotate(360deg);
     }
 }
 
 /* CAROUSEL 1 */
 .caro-div {
-    text-align: center;
     margin: 5px auto;
     width: 90%;
     background: rgb(4, 137, 245);
     background: radial-gradient(circle, rgba(4, 137, 245, 0.9976365546218487) 9%, rgba(50, 79, 80, 1) 67%, rgba(7, 22, 25, 1) 100%);
 }
 
-.caro1 {
+.caro-tile {
     height: 200px;
     width: 150px;
-    margin: 10px 5px;
-    transition: 0.3s linear;
+    margin: 10px 7px;
+    transition: 0.2s linear;
     display: inline-block;
 }
 
-.caro1:hover {
+.caro-tile:hover {
     margin: 10px 15px;
-    transform: scale(1.25)
+    transform: scale(1.35)
 }
 
 .carousel-control-prev,
@@ -196,28 +179,20 @@ hr {
     background: linear-gradient(41deg, rgba(0, 20, 36, 0.9976365546218487) 58%, rgba(9, 117, 121, 1) 77%, rgba(0, 212, 255, 1) 100%);
 }
 
-/* TILES SECTION */
+/* FLOATINH TILES SECTION */
 
-.sec1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
+.floating-tile {
     width: 100%;
     height: 300px;
     transition: 0.4s ease-in-out;
     background-color: #b8de6f
 }
 
-.sec1:hover {
+.floating-tile:hover {
     background-color: #81b214;
 }
 
 .bx {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 200px;
     width: 70%;
     position: relative;
@@ -249,10 +224,10 @@ hr {
     width: 0;
     left: -10px;
     top: -10px;
-
+    border: transparent;
 }
 
-.sec1:hover .bx:before {
+.floating-tile:hover .bx:before {
 
     animation: animate 1.5s linear infinite;
 }
@@ -262,9 +237,6 @@ hr {
         width: 0;
         height: 0;
         border-top: 5px black solid;
-        border-right: transparent;
-        border-bottom: transparent;
-        border-left: transparent;
     }
 
     50% {
@@ -272,17 +244,13 @@ hr {
         height: 5px;
         border-top: 5px black solid;
         border-right: 5px black solid;
-        border-bottom: transparent;
-        border-left: transparent;
     }
 
     100% {
         width: 100%;
-        height: 200px;
+        height: 100%;
         border-top: 5px black solid;
         border-right: 5px black solid;
-        border-bottom: transparent;
-        border-left: transparent;
     }
 }
 
@@ -293,11 +261,11 @@ hr {
     width: 0;
     left: -10px;
     top: -10px;
-
+    border: transparent;
 
 }
 
-.sec1:hover .bx:after {
+.floating-tile:hover .bx:after {
 
     animation: animate2 1.5s linear infinite;
 }
@@ -306,26 +274,19 @@ hr {
     0% {
         width: 0;
         height: 0;
-        border-top: transparent;
-        border-right: transparent;
-        border-bottom: transparent;
         border-left: 5px red solid;
     }
 
     50% {
         width: 0;
-        height: 200px;
-        border-top: transparent;
-        border-right: transparent;
+        height: 100%;
         border-bottom: 5px red solid;
         border-left: 5px red solid;
     }
 
     100% {
         width: 100%;
-        height: 200px;
-        border-top: transparent;
-        border-right: transparent;
+        height: 100%;
         border-bottom: 5px red solid;
         border-left: 5px red solid;
     }

@@ -1,3 +1,9 @@
+.pic {
+    display: grid;
+    place-items: center;
+}
+
+
 /* MOSAIC 1 */
 .mosaic1 {
     margin: 50px auto;
@@ -26,28 +32,23 @@
 }
 
 .mosaic1 .box img {
-    max-height: 280px;
-    max-width: 250px;
+    width: 100%;
+    height: 100%;
     transition: 0.3s linear;
 }
 
 .box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-width: 240px;
     min-height: 240px;
-    padding: 20px;
+    padding: 10px;
     background-color: #333;
     color: #fff;
     transition: 0.5s ease-in-out;
     overflow: hidden;
-
 }
 
 .mosaic1 .box:hover {
     background-color: pink;
-
 }
 
 .mosaic1 .box h3 {
@@ -69,20 +70,32 @@
     background-color: #fff;
     display: grid;
     place-items: center;
-    grid-template-columns: repeat(auto-fill, 250px);
-    grid-template-rows: repeat(auto-fill, 250px);
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-template-rows: repeat(auto-fill, 300px);
     grid-gap: 10px;
 }
 
-.box1 .content {
-    position: relative;
-    left: -250px;
+.flow-up1,
+.static-1 {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    visibility: hidden;
+    transition: 0.4s ease-in-out;
+}
+
+.flow-up1 {
+    top: 180px;
 }
 
 .box1 {
     height: 250px;
     width: 250px;
     overflow: hidden;
+    position: relative;
+    border: 5px solid grey;
+    transition: 0.4s ease-in-out;
 }
 
 .box1:hover {
@@ -93,18 +106,185 @@
     opacity: 0.2;
 }
 
-.box1:hover .content {
-    animation: change 0.5s linear 1 forwards;
+.box1:hover .flow-up1 {
+    visibility: visible;
+    top: 150px;
 }
 
-@keyframes change {
-    from {
-        top: -230px;
-        left: -250px;
+.box1:hover .static-1 {
+    visibility: visible;
+    top: 10px;
+}
+
+
+/* CUSTOM CARD */
+.custom-card {
+    border: 1px solid black;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    margin: 30px;
+}
+
+.custom-card-peek {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: blue;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    flex-flow: column-reverse;
+    transition: 0.3s ease-in-out;
+}
+
+.custom-card:hover .custom-card-peek {
+    right: -125px;
+}
+
+/* 3D FLIP CARD AND CUBE SECTION */
+.cube,
+.flip-card {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 50px auto;
+    transform-style: preserve-3d;
+    transition: 0.4s ease-in-out;
+
+}
+
+.cube {
+    animation: animate1 15s linear infinite;
+}
+
+.side1,
+.side2,
+.side3,
+.side4,
+.front-flip,
+.back-flip {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SIDES OF FLIP CARD */
+.flip-card:hover {
+    transform: rotateY(180deg);
+}
+
+.front-flip {
+    background-color: yellow;
+    border-radius: 50%;
+}
+
+.back-flip {
+    border-radius: 50%;
+    background-color: green;
+    transform: rotateY(180deg);
+}
+
+/* SIDES OF CUBE */
+.side1 {
+    background-color: yellow;
+    transform: translateZ(100px);
+}
+
+.side2 {
+    background-color: red;
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.side3 {
+    transform: rotateY(180deg) translateZ(100px);
+    background-color: green;
+}
+
+.side4 {
+    background-color: blue;
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+/* 3D GALLARY */
+.gallary {
+    height: 200px;
+    width: 200px;
+    transform-style: preserve-3d;
+    animation: animate1 15s linear infinite;
+    margin: 100px;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: perspective(1000px) rotateY(0);
     }
 
-    to {
-        left: 10px;
-        top: -230px;
+    100% {
+        transform: perspective(1000px) rotateY(-360deg);
     }
+}
+
+.gallary span {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    transform: rotateY(calc(var(--i)*45deg)) translateZ(400px);
+}
+
+span img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004)
+}
+
+/* CLIP ART */
+.clip-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.clip-container .clip {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: 0.4s ease-in-out;
+}
+
+.clip-container .clip.clip1 {
+    background-color: red;
+    clip-path: polygon(0 0, 45% 0, 20% 100%, 0% 100%);
+}
+
+
+.clip-container .clip.clip2 {
+    background-color: blue;
+    clip-path: polygon(45% 0, 100% 0, 53% 100%, 20% 100%);
+}
+
+.clip-container .clip.clip3 {
+    background-color: yellow;
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 53% 100%);
+}
+
+.clip-container:hover .clip {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 99%);
+}
+
+.clip-container .clip:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
