@@ -95,11 +95,13 @@
     overflow: hidden;
     position: relative;
     border: 5px solid grey;
+    border-radius: 25px;
     transition: 0.4s ease-in-out;
 }
 
 .box1:hover {
     border: 5px solid green;
+    transform: scale(1.1)
 }
 
 .box1:hover img {
@@ -170,6 +172,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004)
 }
 
 /* SIDES OF FLIP CARD */
